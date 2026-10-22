@@ -417,6 +417,19 @@ p { margin: 0 0 1em; }
 .spec-table td:nth-child(3) { width: 22%; font-weight: 600; }
 .spec-table td:nth-child(4) { color: var(--graphite); }
 
+.kv {
+  display: grid;
+  grid-template-columns: minmax(7.5em, auto) 1fr;
+  gap: 6px 16px;
+  margin: 0;
+}
+
+.kv dt { font-size: 13px; font-weight: 600; color: var(--graphite); padding-top: 2px; }
+.kv dd { margin: 0; font-weight: 600; }
+
+.spec-table td:nth-child(3) .kv { grid-template-columns: minmax(6.5em, auto) 1fr; }
+.spec-table td:nth-child(3) { font-weight: 400; }
+
 .spec-wrap.is-collapsed thead th:nth-child(n + 3),
 .spec-wrap.is-collapsed td:nth-child(n + 3) { display: none; }
 .spec-wrap.is-collapsed .spec-table td:nth-child(2) { width: auto; }
