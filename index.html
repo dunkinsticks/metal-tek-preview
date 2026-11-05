@@ -382,21 +382,15 @@
         <h2>Request a quote.</h2>
         <p class="lede">Tell us about the part. The more we know about material, quantity and timing, the faster we can price it. Proprietary drawings? We’re happy to sign your NDA before you send them.</p>
 
-        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
-          <!-- Web3Forms access key: see README, "Quote form". Public by design; it only allows sending to the shop inbox. -->
-          <input type="hidden" name="access_key" value="8a6a8502-d886-4dbf-bd08-375297f2c4ca">
-          <input type="hidden" name="subject" value="New quote request from metaltekonline.com">
-          <input type="hidden" name="from_name" value="Metal Tek website">
+        <!-- Netlify Forms: detected at deploy. Notifications are set in Netlify under Project configuration > Notifications > Form submission notifications. See README, "Quote form". -->
+        <form id="quote-form" name="quote" method="POST" action="/" data-netlify="true" netlify-honeypot="botcheck" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="form-name" value="quote">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="drawing-slot">
-            <div class="field" id="upload-field" hidden>
-              <label for="f-file">Drawing <span class="opt">(DXF, DWG, PDF, STEP or photo, up to 5 MB; zip several files together)</span></label>
-              <input id="f-file" name="attachment" type="file" accept=".dxf,.dwg,.pdf,.step,.stp,.zip,.png,.jpg,.jpeg">
-            </div>
-            <div class="drawing-later" id="drawing-later">
-              <strong>Drawing</strong>
-              <p>Fill this in and press Send. The next step opens an email to us, already labeled with your request, so you can attach your DXF, PDF or STEP file.</p>
+            <div class="field" id="upload-field">
+              <label for="f-file">Drawing <span class="opt">(optional: DXF, DWG, PDF, STEP or photo, up to 8 MB; zip several files together)</span></label>
+              <input id="f-file" name="drawing" type="file" accept=".dxf,.dwg,.pdf,.step,.stp,.zip,.png,.jpg,.jpeg">
             </div>
           </div>
 
